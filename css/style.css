@@ -837,6 +837,10 @@ textarea {
 
   .callbar .btn {
     flex: 1;
+    min-width: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 15px;
   }
 
   body {

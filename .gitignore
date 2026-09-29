@@ -4,3 +4,5 @@ Thumbs.db
 zdjecia-surowe/
 .vscode/
 .env
+.wrangler/
+node_modules/

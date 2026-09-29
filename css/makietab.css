@@ -1,0 +1,875 @@
+/* MAKIETA B — ciemny, motion-first. Ładowany PO css/style.css, tylko nadpisuje. */
+
+/* ---------- 1. Tokeny: jasny -> ciemny ---------- */
+:root {
+  --bg: #0c1210;
+  --bg-2: #101917;
+  --surface: #141f1c;
+  --surface-2: #1a2723;
+  --ink: #eef4f1;
+  --ink-soft: #c2d2cc;
+  --muted: #8ba099;
+  --line: #22322d;
+  --accent: #5fd39b;
+  --accent-2: #3aa876;
+  --devis: #f0873f;
+  --devis-2: #d9702c;
+  --ok: #5fd39b;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+  --radius: 18px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* jasne tła z oryginalnego arkusza na ciemnych tokenach */
+.form-card,
+.note,
+.aside-box,
+.map,
+.place,
+.legal,
+.who,
+.service,
+.cols > * {
+  background: var(--surface);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+  background: var(--bg-2);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.form-card input::placeholder,
+.form-card textarea::placeholder {
+  color: var(--muted);
+}
+
+/* ---------- 2. Przyciski i linki ---------- */
+.btn {
+  border-radius: 12px;
+  padding: 13px 22px;
+  font-size: 17px;
+  font-weight: 700;
+  transition: transform 0.25s var(--ease), box-shadow 0.3s var(--ease), background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-devis {
+  background: var(--devis);
+  color: #0c1210;
+  box-shadow: 0 8px 26px rgba(240, 135, 63, 0.3);
+}
+
+.btn-devis:hover {
+  background: var(--devis);
+  color: #0c1210;
+  box-shadow: 0 14px 36px rgba(240, 135, 63, 0.45);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(95, 211, 155, 0.08);
+}
+
+/* jasny border z index.html na ciemnym tle */
+.btn-ghost[style] {
+  border-color: var(--line) !important;
+  color: var(--ink) !important;
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: #08120e;
+}
+
+/* ---------- 3. Nagłówek ---------- */
+.site-header {
+  background: rgba(12, 18, 16, 0.72);
+  backdrop-filter: blur(18px) saturate(1.5);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.4s var(--ease), background 0.4s var(--ease);
+}
+
+.site-header.is-stuck {
+  border-bottom-color: var(--line);
+  background: rgba(12, 18, 16, 0.92);
+}
+
+.brand:hover .brand-mark {
+  transform: rotate(-8deg) scale(1.06);
+}
+
+.brand-mark {
+  background: linear-gradient(140deg, var(--accent), var(--accent-2));
+  color: #08120e;
+  border-radius: 12px;
+  transition: transform 0.5s var(--ease);
+}
+
+.nav a {
+  position: relative;
+  border-radius: 9px;
+  transition: color 0.25s;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 13px;
+  right: 13px;
+  bottom: 5px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+
+.nav a:hover::after,
+.nav a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.nav a[aria-current="page"] {
+  color: var(--accent);
+}
+
+.nav.is-open {
+  background: var(--bg-2);
+  border-color: var(--line);
+}
+
+.nav-toggle {
+  border-color: var(--line);
+  background: var(--surface);
+  border-radius: 11px;
+}
+
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after {
+  background: var(--ink);
+}
+
+/* ---------- 4. HERO motion-first ---------- */
+.hero {
+  min-height: 96vh;
+  height: auto;
+  max-height: none;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 70px 0;
+  isolation: isolate;
+  background: var(--bg);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(rgba(95, 211, 155, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(95, 211, 155, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 65% at 50% 45%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 65% at 50% 45%, #000 30%, transparent 75%);
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.42;
+  mix-blend-mode: screen;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero-orb-1 {
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, #1f6f4f, transparent 70%);
+  top: -12%;
+  left: -10%;
+  animation:b-float1 20s var(--ease) infinite alternate;
+}
+
+.hero-orb-2 {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, #8a4a1c, transparent 70%);
+  bottom: -14%;
+  right: -8%;
+  animation: b-float2 26s var(--ease) infinite alternate;
+}
+
+.hero-orb-3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #1d4f5e, transparent 70%);
+  top: 38%;
+  left: 44%;
+  animation: b-float1 32s var(--ease) infinite alternate-reverse;
+}
+
+@keyframes b-float1 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(60px, 50px, 0) scale(1.18); }
+}
+
+@keyframes b-float2 {
+  0% { transform: translate3d(0, 0, 0) scale(1.1); }
+  100% { transform: translate3d(-70px, -40px, 0) scale(0.9); }
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-inner > div:first-child {
+  max-width: 640px;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(38px, 5.6vw, 66px);
+  line-height: 1.03;
+  letter-spacing: -0.025em;
+  margin: 0 0 24px;
+}
+
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(70%) rotate(6deg);
+  transition: opacity 0.85s var(--ease), transform 0.85s var(--ease);
+}
+
+.word.in {
+  opacity: 1;
+  transform: none;
+}
+
+.word.hl {
+  background: linear-gradient(100deg, var(--accent), var(--devis));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 15px;
+  border-radius: 100px;
+  background: rgba(95, 211, 155, 0.12);
+  border: 1px solid rgba(95, 211, 155, 0.3);
+  color: var(--accent);
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin: 0 0 24px;
+}
+
+.eyebrow .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: b-pulse 2.2s var(--ease) infinite;
+}
+
+@keyframes b-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(95, 211, 155, 0.55); }
+  70% { box-shadow: 0 0 0 11px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+.hero .kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 15px;
+  border-radius: 100px;
+  background: rgba(95, 211, 155, 0.12);
+  border: 1px solid rgba(95, 211, 155, 0.3);
+  color: var(--accent);
+  font-size: 14.5px;
+  font-weight: 700;
+  margin: 0 0 24px;
+}
+
+.hero .lede {
+  font-size: 20px;
+  color: var(--ink-soft);
+  margin: 0 0 32px;
+  max-width: 46ch;
+}
+
+.hero-actions,
+.hero .cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin: 0 0 36px;
+}
+
+.hero-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  font-size: 15.5px;
+  color: var(--muted);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-proof li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-proof svg {
+  color: var(--accent);
+  flex: 0 0 auto;
+}
+
+/* hero media: stack kart ze scroll parallax */
+.hero-stack {
+  position: relative;
+  height: 520px;
+}
+
+.stack-card {
+  position: absolute;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+  transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  will-change: transform;
+}
+
+.stack-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stack-card .lbl {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.sc-1 { width: 66%; height: 280px; top: 0; left: 0; z-index: 3; }
+.sc-2 { width: 56%; height: 230px; top: 170px; right: 0; z-index: 2; }
+.sc-3 { width: 60%; height: 210px; bottom: 0; left: 14%; z-index: 1; }
+
+.stack-card.float {
+  animation: b-bob 7s var(--ease) infinite alternate;
+}
+
+.sc-2.float { animation-duration: 9s; animation-delay: -3s; }
+.sc-3.float { animation-duration: 11s; animation-delay: -6s; }
+
+@keyframes b-bob {
+  0% { translate: 0 0; }
+  100% { translate: 0 -16px; }
+}
+
+/* ---------- 5. Sekcje i karty ---------- */
+.section {
+  padding: 100px 0;
+}
+
+.section-head h2,
+.band h2 {
+  color: var(--ink);
+}
+
+.section-head p {
+  color: var(--muted);
+}
+
+.grid-6 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.tile,
+.card {
+  background: linear-gradient(160deg, var(--surface), var(--bg-2));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: none;
+  transition: transform 0.45s var(--ease), border-color 0.4s var(--ease), box-shadow 0.45s var(--ease);
+  will-change: transform;
+}
+
+.tile::before,
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+  background: radial-gradient(460px circle at var(--mx, 50%) var(--my, 50%), rgba(95, 211, 155, 0.14), transparent 62%);
+  pointer-events: none;
+}
+
+.tile:hover,
+.card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(95, 211, 155, 0.42);
+  box-shadow: var(--shadow);
+}
+
+.tile:hover::before,
+.card:hover::before {
+  opacity: 1;
+}
+
+.grid-6 > .tile {
+  position: relative;
+}
+
+.tile h3,
+.card h3,
+.step h3 {
+  font-family: var(--serif);
+  color: var(--ink);
+}
+
+.tile p,
+.card p,
+.step p {
+  color: var(--ink-soft);
+}
+
+.tile > span:last-child {
+  color: var(--accent);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: transform 0.3s var(--ease);
+}
+
+.tile:hover > span:last-child {
+  transform: translateX(4px);
+}
+
+.tile-icon {
+  background: rgba(95, 211, 155, 0.13);
+  color: var(--accent);
+  border-radius: 13px;
+  transition: transform 0.5s var(--ease), background 0.3s, color 0.3s;
+}
+
+.tile:hover .tile-icon {
+  transform: translateY(-4px) rotate(-8deg) scale(1.09);
+  background: var(--accent);
+  color: #08120e;
+}
+
+/* karta CTA w bento */
+.tile-cta {
+  background: linear-gradient(150deg, var(--accent), var(--accent-2));
+  border-color: transparent;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.tile-cta h3 {
+  color: #08120e;
+}
+
+.tile-cta p {
+  color: rgba(8, 18, 14, 0.75);
+}
+
+/* ---------- 6. Kroki: poziomy strip ---------- */
+.steps {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding: 6px 4px 22px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.steps::-webkit-scrollbar {
+  height: 6px;
+}
+
+.steps::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 3px;
+}
+
+.steps .step {
+  flex: 0 0 268px;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+.steps .step > span:first-of-type {
+  background: rgba(95, 211, 155, 0.16);
+  color: var(--accent);
+  transition: transform 0.45s var(--ease), background 0.3s, color 0.3s;
+}
+
+.steps .step:hover > span:first-of-type {
+  transform: scale(1.14);
+  background: var(--accent);
+  color: #08120e;
+}
+
+/* ---------- 7. Galeria ---------- */
+.shots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.shot {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.shot:nth-child(n) {
+  grid-column: span 1;
+  aspect-ratio: 16 / 10;
+}
+
+.shot img {
+  transition: transform 0.85s var(--ease), filter 0.5s;
+}
+
+.shot:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.08);
+}
+
+.gallery {
+  border-color: var(--line);
+}
+
+/* ---------- 8. Band CTA ---------- */
+.band {
+  background: linear-gradient(140deg, #0f1a17, #0c1210);
+  border-block: 1px solid var(--line);
+  color: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+.band::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(240, 135, 63, 0.22), transparent 68%);
+  top: -240px;
+  right: -140px;
+  animation: b-float2 22s var(--ease) infinite alternate;
+  pointer-events: none;
+}
+
+.band .wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.band p {
+  color: var(--muted);
+}
+
+/* ---------- 9. Stopka i callbar ---------- */
+.site-footer {
+  background: var(--bg-2);
+  border-top: 1px solid var(--line);
+}
+
+.site-footer a {
+  color: var(--ink-soft);
+  transition: color 0.25s;
+}
+
+.site-footer a:hover {
+  color: var(--accent);
+}
+
+.legal-line {
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+
+.callbar {
+  background: rgba(12, 18, 16, 0.92);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- 10. Pływające CTA telefonu ---------- */
+.fixed-cta {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 14px 22px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 17px;
+  background: var(--devis);
+  color: #0c1210;
+  box-shadow: 0 14px 40px rgba(240, 135, 63, 0.4);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), opacity 0.4s var(--ease);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fixed-cta.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  animation: b-cta-in 0.8s var(--ease) both;
+}
+
+.fixed-cta:hover {
+  color: #0c1210;
+  transform: scale(1.05);
+  box-shadow: 0 18px 52px rgba(240, 135, 63, 0.55);
+}
+
+.fixed-cta svg {
+  animation: b-ring 2.4s var(--ease) infinite;
+}
+
+@keyframes b-cta-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.9); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes b-ring {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-14deg); }
+  75% { transform: rotate(14deg); }
+}
+
+/* ---------- 11. Reveal ---------- */
+.js .rv {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+
+.js .rv.in {
+  opacity: 1;
+  transform: none;
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+
+.js .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.rv-d1 { transition-delay: 0.08s; }
+.rv-d2 { transition-delay: 0.16s; }
+.rv-d3 { transition-delay: 0.24s; }
+.rv-d4 { transition-delay: 0.32s; }
+
+/* ---------- 12. Strony wewnętrzne: page-hero ---------- */
+.page-hero {
+  background: linear-gradient(140deg, #0f1a17, #0c1210);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.page-hero p {
+  color: var(--ink-soft);
+}
+
+.page-404 {
+  color: var(--ink);
+}
+
+/* ---------- 13. Responsywność ---------- */
+@media (max-width: 1000px) {
+  .hero {
+    min-height: auto;
+    padding: 60px 0 70px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .hero-inner > div:first-child {
+    max-width: none;
+  }
+
+  .hero-stack {
+    height: 420px;
+  }
+
+  .tile-cta {
+    grid-column: span 2;
+  }
+
+  .section {
+    padding: 74px 0;
+  }
+
+  .fixed-cta {
+    bottom: 16px;
+    right: 16px;
+    padding: 12px 18px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 620px) {
+  .grid-6,
+  .trust,
+  .shots,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .tile-cta {
+    grid-column: span 1;
+  }
+
+  .shot:nth-child(n) {
+    aspect-ratio: 4 / 3;
+  }
+
+  .hero .lede {
+    font-size: 18.5px;
+  }
+
+  .hero-actions .btn,
+  .hero .cta .btn {
+    flex: 1 1 100%;
+  }
+
+  .hero-stack {
+    height: 380px;
+  }
+
+  /* mobile: zwykły grid 2x2, bez absolutów — nic nie wychodzi poza kontener */
+  .hero-stack {
+    position: static;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .sc-1,
+  .sc-2,
+  .sc-3 {
+    position: static;
+    inset: auto;
+    width: auto;
+    height: 170px;
+  }
+
+  .sc-3 {
+    grid-column: span 2;
+    height: 150px;
+  }
+
+  .steps .step {
+    flex: 0 0 240px;
+  }
+
+  /* mobile: telefon jest w callbarze na dole — pływające CTA tylko desktop */
+  .fixed-cta {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .word,
+  .rv,
+  .js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

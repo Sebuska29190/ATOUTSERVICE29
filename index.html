@@ -19,6 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/makietab.css">
 </head>
 <body>
   <a class="skip" href="#contenu">Aller au contenu</a>
@@ -44,67 +45,89 @@
 
   <main id="contenu">
     <section class="hero">
-      <video data-hero-video autoplay muted loop playsinline poster="img/hero.jpg" width="1280" height="720" aria-label="Maison en granit à Brest">
-        <source src="video/hero.mp4" type="video/mp4">
-      </video>
+      <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
       <div class="wrap hero-inner">
-        <p class="kicker">Brest · Finistère</p>
-        <h1>Jardinage et petits travaux à Brest</h1>
-        <a class="btn btn-devis" href="contact.html">Demander un devis</a>
+        <div>
+          <p class="kicker"><span class="dot" aria-hidden="true"></span> Disponible cette semaine &agrave; Brest</p>
+          <h1><span class="word">Un</span> <span class="word">jardin</span> <span class="word">en</span> <span class="word">&eacute;tat,</span> <span class="word hl">un</span> <span class="word hl">voisin</span> <span class="word hl">qui</span> <span class="word hl">vient.</span></h1>
+          <p class="lede rv">Entretien des espaces verts, cl&ocirc;tures, ma&ccedil;onnerie paysag&egrave;re et petits travaux autour de Brest. Devis &eacute;crit avant de commencer.</p>
+          <div class="hero-actions rv rv-d1">
+            <a class="btn btn-devis" href="tel:+336****7881" data-phone-wrap hidden data-phone-href>06 67 96 78 81</a>
+            <a class="btn btn-ghost" href="services.html">Voir les prestations</a>
+          </div>
+          <ul class="hero-proof rv rv-d2">
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Devis gratuit</li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Facture remise</li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Entreprise individuelle</li>
+          </ul>
+        </div>
+        <div class="hero-stack" id="stack">
+          <figure class="stack-card sc-1 float"><img src="img/realisations/jardinage-brest-01.jpg" alt="Entretien d'un jardin &agrave; Brest" width="800" height="533"><figcaption class="lbl">Entretien d'espaces verts</figcaption></figure>
+          <figure class="stack-card sc-2 float"><img src="img/realisations/portail-brest-01.jpg" alt="Portail manuel" width="800" height="533"><figcaption class="lbl">Portail manuel</figcaption></figure>
+          <figure class="stack-card sc-3 float"><img src="img/realisations/maconnerie-paysagere-brest-01.jpg" alt="Ma&ccedil;onnerie paysag&egrave;re" width="800" height="533"><figcaption class="lbl">Muret et bordures</figcaption></figure>
+        </div>
       </div>
-      <button class="hero-pause" type="button" data-hero-pause aria-pressed="false">Pause</button>
     </section>
 
-    <section class="section reveal">
+    <section class="section">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div>
-            <h2>Prestations</h2>
-            <p>Jardinage et petits travaux du bâtiment, avec un périmètre écrit.</p>
+            <h2>Ce que je fais</h2>
+            <p>Un périmètre écrit pour chaque prestation. Ce qui n'est pas dans la liste n'est pas fait.</p>
           </div>
           <a href="services.html">Toutes les prestations</a>
         </div>
-        <div class="grid-6">
-          <a class="tile" href="entretien-jardin-brest.html">
+        <div class="grid-6" id="svc">
+          <a class="tile rv rv-d1" href="entretien-jardin-brest.html">
             <span class="tile-icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 21c8-2 11-8 11-14 0 0-7 1-11 8 2-1 4-1 6 0-3 2-5 4-6 6z"/><path d="M12 10c2 3 3 6 3 11"/></svg>
             </span>
             <h3>Jardinage</h3>
-            <p>Petits travaux et entretien d’espaces verts.</p>
+            <p>Entretiens r&eacute;guliers ou passage ponctuel, selon la saison.</p>
             <span>En savoir plus</span>
           </a>
-          <a class="tile" href="services.html#bricolage">
-            <span class="tile-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 7l3-3 3 3-3 3M4 20l8-8"/><path d="M15 10l4 4"/></svg>
-            </span>
-            <h3>Bricolage</h3>
-            <p>Petits travaux non soumis à qualification.</p>
-            <span>En savoir plus</span>
-          </a>
-          <a class="tile" href="pose-cloture-brest.html">
+          <a class="tile rv rv-d2" href="pose-cloture-brest.html">
             <span class="tile-icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V8m5 12V8m5 12V8m5 12V8M3 8h18M4 12h16"/></svg>
             </span>
-            <h3>Clôtures</h3>
-            <p>Palissades, grillages et portails sans domotique.</p>
+            <h3>Cl&ocirc;tures et portails</h3>
+            <p>Palissades et grillages, portails manuels, pos&eacute;s sans motorisation.</p>
             <span>En savoir plus</span>
           </a>
-          <a class="tile" href="services.html#maconnerie">
+          <a class="tile rv rv-d3" href="services.html#maconnerie">
             <span class="tile-icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10h18M3 14h18M4 6h16v14H4z"/></svg>
             </span>
-            <h3>Maçonnerie paysagère</h3>
-            <p>Murets, bordures et petits aménagements.</p>
+            <h3>Ma&ccedil;onnerie paysag&egrave;re</h3>
+            <p>Petits ouvrages autour de la maison, pas de gros &oelig;uvre.</p>
             <span>En savoir plus</span>
           </a>
-          <a class="tile" href="services.html#bois">
+          <a class="tile rv" href="services.html#bricolage">
+            <span class="tile-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 7l3-3 3 3-3 3M4 20l8-8"/><path d="M15 10l4 4"/></svg>
+            </span>
+            <h3>Petit bricolage</h3>
+            <p>R&eacute;parations et montages du quotidien, sans terrassement.</p>
+            <span>En savoir plus</span>
+          </a>
+          <a class="tile rv rv-d2" href="services.html#bois">
             <span class="tile-icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18h16M7 18V7l5-3 5 3v11"/><path d="M12 8v10"/></svg>
             </span>
             <h3>Sciage du bois</h3>
-            <p>Découpe et préparation de bois de chauffage.</p>
+            <p>D&eacute;coupe et pr&eacute;paration de bois de chauffage.</p>
             <span>En savoir plus</span>
           </a>
+          <div class="tile tile-cta rv rv-d3">
+            <div>
+              <h3>Autre chose&nbsp;?</h3>
+              <p>Si votre besoin n'est pas dans la liste, appelez. Je vous dirai franchement si je peux le faire.</p>
+            </div>
+            <a class="btn btn-ghost" href="tel:+336****7881" data-phone-wrap hidden data-phone-href>06 67 96 78 81</a>
+          </div>
         </div>
       </div>
     </section>
@@ -113,58 +136,62 @@
       <div class="wrap">
         <div class="section-head">
           <div>
-            <h2>Réalisations</h2>
+            <h2>Réalisations récentes</h2>
             <p>Le résultat du travail, à Brest et autour.</p>
           </div>
           <a href="realisations.html">Voir la galerie</a>
         </div>
         <div class="shots">
-          <figure class="shot">
-            <img src="img/realisations/maconnerie-paysagere-brest-01.jpg" alt="Maçonnerie paysagère à Brest" width="800" height="533" loading="lazy">
-            <figcaption>Maçonnerie paysagère</figcaption>
+          <figure class="shot rv rv-d1">
+            <img src="img/realisations/maconnerie-paysagere-brest-01.jpg" alt="Ma&ccedil;onnerie paysag&egrave;re &agrave; Brest" width="800" height="533" loading="lazy">
+            <figcaption>Muret et bordures</figcaption>
           </figure>
-          <figure class="shot">
-            <img src="img/realisations/jardinage-brest-01.jpg" alt="Entretien d’un jardin à Brest" width="800" height="533" loading="lazy">
-            <figcaption>Entretien d’espaces verts</figcaption>
+          <figure class="shot rv rv-d2">
+            <img src="img/realisations/portail-brest-01.jpg" alt="Portail manuel &agrave; Brest" width="800" height="533" loading="lazy">
+            <figcaption>Portail manuel</figcaption>
           </figure>
-          <figure class="shot">
-            <img src="img/realisations/palissade-brest-01.jpg" alt="Pose de palissade à Brest" width="800" height="533" loading="lazy">
-            <figcaption>Pose de palissade</figcaption>
+          <figure class="shot rv rv-d3">
+            <img src="img/realisations/palissade-brest-01.jpg" alt="Pose de palissade &agrave; Brest" width="800" height="533" loading="lazy">
+            <figcaption>Palissade pos&eacute;e</figcaption>
+          </figure>
+          <figure class="shot rv rv-d4">
+            <img src="img/realisations/sciage-bois-brest-01.jpg" alt="Sciage de bois &agrave; Brest" width="800" height="533" loading="lazy">
+            <figcaption>Sciage et mise en st&egrave;res</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <section class="section reveal" style="padding-top:0">
+    <section class="section">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div>
-            <h2>Comment ça se passe</h2>
-            <p>Un interlocuteur, un devis écrit, un périmètre clair.</p>
+            <h2>Comment &ccedil;a se passe</h2>
+            <p>Quatre étapes, aucune surprise sur la facture.</p>
           </div>
         </div>
         <div class="steps">
-          <article class="card step"><span>1</span><h3>Vous écrivez</h3><p>Le formulaire suffit : lieu, accès, ce qu’il faut faire.</p></article>
-          <article class="card step"><span>2</span><h3>Visite</h3><p>On passe voir, si le chantier le demande.</p></article>
-          <article class="card step"><span>3</span><h3>Devis écrit</h3><p>Le prix et le périmètre sont sur le même document.</p></article>
-          <article class="card step"><span>4</span><h3>Intervention</h3><p>Le travail est fait. Des photos du résultat peuvent suivre.</p></article>
+          <article class="card step rv rv-d1"><span>1</span><h3>Vous appelez</h3><p>Un besoin simple se règle au téléphone en deux minutes.</p></article>
+          <article class="card step rv rv-d2"><span>2</span><h3>Visite</h3><p>On passe voir, si le chantier le demande.</p></article>
+          <article class="card step rv rv-d3"><span>3</span><h3>Devis écrit</h3><p>Le prix et le périmètre sont sur le même document.</p></article>
+          <article class="card step rv rv-d4"><span>4</span><h3>Intervention</h3><p>Le travail est fait. Des photos du résultat peuvent suivre.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section reveal" style="padding-top:0">
+    <section class="section" style="padding-top:0">
       <div class="wrap trust">
-        <article class="card" style="padding:22px">
+        <article class="card rv rv-d1" style="padding:22px">
           <h3>Brest et agglomération</h3>
           <p>Interventions à Brest, Guipavas, Plouzané, Gouesnou, Le Relecq-Kerhuon, Plougastel-Daoulas et communes voisines.</p>
         </article>
-        <article class="card" style="padding:22px">
+        <article class="card rv rv-d2" style="padding:22px">
           <h3>Devis clair</h3>
           <p>Vous décrivez le besoin, nous précisons le périmètre, puis un devis lisible. Pas de jargon, pas de surprise.</p>
         </article>
-        <article class="card" style="padding:22px">
-          <h3>Entreprise créée en 2026</h3>
-          <p>ATOUT SERVICES 29 est une entreprise individuelle basée à Brest. Une personne, un interlocuteur.</p>
+        <article class="card rv rv-d3" style="padding:22px">
+          <h3>Une seule personne</h3>
+          <p>Entreprise individuelle créée en 2026, basée à Brest. Vous parlez à la personne qui vient sur place.</p>
         </article>
       </div>
     </section>
@@ -176,8 +203,9 @@
           <p>Expliquez-nous le besoin. Photos par e-mail bienvenues.</p>
         </div>
         <div class="actions">
+          <a class="btn btn-devis" href="tel:+33667967881" data-phone-wrap hidden data-phone-href>06 67 96 78 81</a>
           <a class="btn btn-devis" href="contact.html">Demander un devis</a>
-          <a class="btn btn-ghost" href="mailto:contact@atoutservices29.fr" data-email-href style="border-color:#fff;color:#fff">Écrire un e-mail</a>
+          <a class="btn btn-ghost" href="mailto:contact@atoutservices29.fr" data-email-href>Écrire un e-mail</a>
         </div>
       </div>
     </section>
@@ -190,6 +218,7 @@
           <h2>ATOUT SERVICES 29</h2>
           <p>55 Rue de Kermenguy<br>29200 Brest</p>
           <p>130 431 646 R.C.S. Brest</p>
+          <p><strong><a data-phone-href><span data-phone-label></span></a></strong></p>
           <p><a href="mailto:contact@atoutservices29.fr" data-email-href data-email-label>contact@atoutservices29.fr</a></p>
         </div>
         <div>
@@ -217,10 +246,15 @@
     </div>
   </footer>
 
+  <a class="fixed-cta" href="tel:+336****7881" data-phone-wrap hidden data-phone-href data-fixed-cta aria-label="Appeler ATOUT SERVICES 29">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+    06 67 96 78 81
+  </a>
+
   <div class="callbar" role="navigation" aria-label="Actions rapides">
     <a class="btn btn-devis" href="contact.html">Devis</a>
     <a class="btn btn-accent" href="mailto:contact@atoutservices29.fr" data-email-href>E-mail</a>
-    <a class="btn btn-ghost" href="contact.html" data-phone-wrap hidden data-phone-href>Appeler</a>
+    <a class="btn btn-ghost" href="tel:+33667967881" data-phone-wrap hidden data-phone-href>06 67 96 78 81</a>
   </div>
 
   <script type="application/ld+json">
@@ -230,6 +264,7 @@
     "name": "ATOUT SERVICES 29",
     "url": "https://atoutservices29.fr/",
     "email": "contact@atoutservices29.fr",
+    "telephone": "+33667967881",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "55 Rue de Kermenguy",
