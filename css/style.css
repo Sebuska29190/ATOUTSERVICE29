@@ -244,7 +244,9 @@ a:hover {
 
 .hero {
   position: relative;
-  min-height: 88vh;
+  min-height: 420px;
+  height: 52vh;
+  max-height: 560px;
   display: grid;
   align-items: end;
   color: #fff;
@@ -811,7 +813,9 @@ textarea {
   }
 
   .hero {
-    min-height: 78vh;
+    height: 46vh;
+    min-height: 280px;
+    max-height: 420px;
   }
 
   .hero-pause {
