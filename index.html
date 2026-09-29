@@ -44,19 +44,18 @@
 
   <main id="contenu">
     <section class="hero">
-      <img src="img/hero.jpg" alt="Façade en granit nettoyée à Brest" width="1280" height="720">
+      <video data-hero-video autoplay muted loop playsinline poster="img/hero.jpg" width="1280" height="720" aria-label="Maison en granit à Brest">
+        <source src="video/hero.mp4" type="video/mp4">
+      </video>
       <div class="wrap hero-inner">
-        <p class="kicker">Entreprise locale · Brest (29)</p>
-        <h1>Nettoyage, jardinage et petits travaux à Brest</h1>
-        <p class="lede">ATOUT SERVICES 29 intervient chez les particuliers et les professionnels de Brest et de l’agglomération. Devis clair, déplacement dans le Finistère.</p>
-        <div class="hero-actions">
-          <a class="btn btn-devis" href="contact.html">Demander un devis</a>
-          <a class="btn btn-ghost" href="services.html" style="background:#fff;color:#1c2b2a">Voir les prestations</a>
-        </div>
+        <p class="kicker">Brest · Finistère</p>
+        <h1>Nettoyage et jardinage à Brest</h1>
+        <a class="btn btn-devis" href="contact.html">Demander un devis</a>
       </div>
+      <button class="hero-pause" type="button" data-hero-pause aria-pressed="false">Pause</button>
     </section>
 
-    <section class="section">
+    <section class="section reveal">
       <div class="wrap">
         <div class="section-head">
           <div>
@@ -66,7 +65,7 @@
           <a href="services.html">Toutes les prestations</a>
         </div>
         <div class="grid-6">
-          <a class="tile" href="services.html#nettoyage">
+          <a class="tile" href="nettoyage-facade-brest.html">
             <span class="tile-icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c4 5 7 8 7 12a7 7 0 1 1-14 0c0-4 3-7 7-12z"/></svg>
             </span>
@@ -74,7 +73,7 @@
             <p>Façades, locaux, extérieur et véhicules.</p>
             <span>En savoir plus</span>
           </a>
-          <a class="tile" href="services.html#jardinage">
+          <a class="tile" href="entretien-jardin-brest.html">
             <span class="tile-icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 21c8-2 11-8 11-14 0 0-7 1-11 8 2-1 4-1 6 0-3 2-5 4-6 6z"/><path d="M12 10c2 3 3 6 3 11"/></svg>
             </span>
@@ -90,7 +89,7 @@
             <p>Petits travaux non soumis à qualification.</p>
             <span>En savoir plus</span>
           </a>
-          <a class="tile" href="services.html#clotures">
+          <a class="tile" href="pose-cloture-brest.html">
             <span class="tile-icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V8m5 12V8m5 12V8m5 12V8M3 8h18M4 12h16"/></svg>
             </span>
@@ -118,7 +117,7 @@
       </div>
     </section>
 
-    <section class="section" style="padding-top:0">
+    <section class="section reveal" style="padding-top:0">
       <div class="wrap">
         <div class="section-head">
           <div>
@@ -144,7 +143,24 @@
       </div>
     </section>
 
-    <section class="section" style="padding-top:0">
+    <section class="section reveal" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Comment ça se passe</h2>
+            <p>Un interlocuteur, un devis écrit, un périmètre clair.</p>
+          </div>
+        </div>
+        <div class="steps">
+          <article class="card step"><span>1</span><h3>Vous écrivez</h3><p>Le formulaire suffit : lieu, accès, ce qu’il faut faire.</p></article>
+          <article class="card step"><span>2</span><h3>Visite</h3><p>On passe voir, si le chantier le demande.</p></article>
+          <article class="card step"><span>3</span><h3>Devis écrit</h3><p>Le prix et le périmètre sont sur le même document.</p></article>
+          <article class="card step"><span>4</span><h3>Intervention</h3><p>Le travail est fait. Des photos du résultat peuvent suivre.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" style="padding-top:0">
       <div class="wrap trust">
         <article class="card" style="padding:22px">
           <h3>Brest et agglomération</h3>

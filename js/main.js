@@ -1,6 +1,8 @@
 (function () {
   "use strict";
 
+  document.documentElement.classList.add("js");
+
   var SITE = {
     email: "contact@atoutservices29.fr",
     phoneDisplay: "",
@@ -62,8 +64,51 @@
     el.textContent = SITE.email;
   });
 
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var video = document.querySelector("[data-hero-video]");
+  var pauseBtn = document.querySelector("[data-hero-pause]");
+  if (video && reduceMotion) {
+    video.removeAttribute("autoplay");
+    video.pause();
+  }
+  if (video && pauseBtn) {
+    pauseBtn.addEventListener("click", function () {
+      if (video.paused) {
+        video.play();
+        pauseBtn.textContent = "Pause";
+        pauseBtn.setAttribute("aria-pressed", "false");
+      } else {
+        video.pause();
+        pauseBtn.textContent = "Lecture";
+        pauseBtn.setAttribute("aria-pressed", "true");
+      }
+    });
+  }
+
+  var revealNodes = document.querySelectorAll(".reveal");
+  if (revealNodes.length && "IntersectionObserver" in window && !reduceMotion) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-in");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.15 });
+    revealNodes.forEach(function (node) { observer.observe(node); });
+  } else {
+    revealNodes.forEach(function (node) { node.classList.add("is-in"); });
+  }
+
   var form = document.querySelector("[data-contact-form]");
   if (form) {
+    var params = new URLSearchParams(window.location.search);
+    var asked = params.get("service");
+    var serviceField = form.querySelector("#service");
+    if (asked && serviceField) {
+      Array.prototype.forEach.call(serviceField.options, function (option) {
+        if (option.value === asked || option.text === asked) serviceField.value = option.value;
+      });
+    }
     form.addEventListener("submit", function (event) {
       var name = form.querySelector("#name");
       var phone = form.querySelector("#phone");
